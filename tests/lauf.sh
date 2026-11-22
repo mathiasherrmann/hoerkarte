@@ -49,8 +49,8 @@ normalisiere() {
     -e 's#'"$FFDIR"'#<FFDIR>#g' \
     -e 's/^(size|video|frame)=.*$/\1=<FLUECHTIG>/' \
     -e 's/time=[0-9:.]+/time=<FLUECHTIG>/g' \
-    -e 's/bitrate=[^ ]+/bitrate=<FLUECHTIG>/g' \
-    -e 's/speed=[^ ]+/speed=<FLUECHTIG>/g' \
+    -e 's/bitrate=[[:space:]]*[^ ]*/bitrate=<FLUECHTIG>/g' \
+    -e 's/speed=[[:space:]]*[^ ]*/speed=<FLUECHTIG>/g' \
     -e 's/Lsize=[^ ]+/Lsize=<FLUECHTIG>/g'
 }
 
@@ -121,8 +121,18 @@ protokoll() { echo "  $*"; }
 # startet ffmpeg ueber QProcess ohne verbundene Standardeingabe; genau das
 # wird hier nachgebildet, ohne der Argumentliste ein -nostdin hinzuzufuegen,
 # das die App nicht uebergibt.
-ffmpeg_lauf()  { "$FFMPEG"  "$@" < /dev/null; }
-ffprobe_lauf() { "$FFPROBE" "$@" < /dev/null; }
+LETZTER_CODE=0
+ffmpeg_lauf()  { "$FFMPEG"  "$@" < /dev/null; LETZTER_CODE=$?; return 0; }
+ffprobe_lauf() { "$FFPROBE" "$@" < /dev/null; LETZTER_CODE=$?; return 0; }
+
+# Haelt den Rueckgabecode des zuletzt ausgefuehrten Aufrufs fest. Die Datei
+# liegt unter geparst/ und wird von compare.sh damit hart verglichen; eine
+# Abweichung ist ein Fehler. Das ist nicht ueberfluessige Buchhaltung: A2
+# liefert auch im Erfolgsfall 1, A5 und A13 werten ausschliesslich ueber den
+# Code, und A3 ignoriert ihn voellig. Verschiebt ein neues ffmpeg diese
+# Zuordnung, aendert sich das Fehlerverhalten der App, ohne dass ein
+# Erfolgsfall auffaellig wuerde.
+code_schreiben() { echo "rueckgabecode: $LETZTER_CODE" > "$GEPARST/$1.code.txt"; }
 
 echo "ffmpeg-Verzeichnis: $FFDIR"
 "$FFMPEG" -hide_banner -version < /dev/null | head -1
@@ -137,6 +147,7 @@ for quelle in "$QUELLEN"/*; do
   protokoll "$name"
   ffprobe_lauf -i "$quelle" -hide_banner -show_format -print_format json -v quiet \
     > "$ROH/A1-ffprobe-$name.json" 2>&1 || true
+  code_schreiben "A1-$name"
 
   # Die App liest ausschließlich format.tags.{title,album,comment}
   # und format.duration (audioinfothread.cpp:107-115).
@@ -162,6 +173,7 @@ done
 # ===========================================================================
 echo "A2 ffmpeg Kapitelermittlung (audiobookconverter.cpp:59-63)"
 ffmpeg_lauf -i "$QUELLEN/kapitel.m4b" -hide_banner > "$ROH/A2-kapitel.txt" 2>&1 || true
+code_schreiben "A2-kapitel"
 normalisiere < "$ROH/A2-kapitel.txt" > "$ROH/A2-kapitel.normalisiert.txt"
 
 # parseForChapters (audiobookconverter.cpp:160-232) nachgebildet:
@@ -208,6 +220,7 @@ while read -r start end titel; do
   set -- "$@" "$ausgabe"
   protokoll "Kapitel $k: $start..$end"
   ffmpeg_lauf "$@" > "$ROH/A3-kapitel-$k.txt" 2>&1 || true
+  code_schreiben "A3-kapitel-$k"
   normalisiere < "$ROH/A3-kapitel-$k.txt" > "$ROH/A3-kapitel-$k.normalisiert.txt"
   [ -f "$ausgabe" ] && messe "$ausgabe" "A3-kapitel-$k"
   k=$((k + 1))
@@ -236,6 +249,7 @@ for quelle in "$QUELLEN"/master.wav "$QUELLEN"/leise.wav "$QUELLEN"/ton.mp3; do
   protokoll "$name"
   ffmpeg_lauf -i "$quelle" -af volumedetect -vn -sn -dn -hide_banner -f null /dev/null \
     > "$ROH/A4-volumedetect-$name.txt" 2>&1 || true
+  code_schreiben "A4-$name"
   normalisiere < "$ROH/A4-volumedetect-$name.txt" > "$ROH/A4-volumedetect-$name.normalisiert.txt"
 
   # Die App liest nur max_volume aus Zeilen, die mit [Parsed_volumedetect
@@ -264,6 +278,7 @@ for quelle in "$QUELLEN"/ton.*; do
   protokoll "$name (Korrektur: ${KORR:-keine})"
   echo "volumenkorrektur_db: ${KORR:-keine}" > "$GEPARST/A5-$endung-parameter.txt"
   ffmpeg_lauf "$@" > "$ROH/A5-$endung.txt" 2>&1 || true
+  code_schreiben "A5-$endung"
   normalisiere < "$ROH/A5-$endung.txt" > "$ROH/A5-$endung.normalisiert.txt"
   [ -f "$ausgabe" ] && messe "$ausgabe" "A5-$endung"
 done
@@ -278,6 +293,7 @@ set -- -i "$QUELLEN/leise.wav" -acodec pcm_s16le -ar 32k -ac 1 \
 set -- "$@" -y -hide_banner "$TMP/A5-leise.WAV"
 protokoll "leise.wav (Korrektur: ${KORR:-keine})"
 ffmpeg_lauf "$@" > "$ROH/A5-leise.txt" 2>&1 || true
+code_schreiben "A5-leise"
 normalisiere < "$ROH/A5-leise.txt" > "$ROH/A5-leise.normalisiert.txt"
 [ -f "$TMP/A5-leise.WAV" ] && messe "$TMP/A5-leise.WAV" "A5-leise"
 
@@ -297,6 +313,7 @@ set -- -i "$QUELLEN/stille-lang.flac" -acodec pcm_s16le -ar 32k -ac 1 \
 [ -n "$KORR" ] && set -- "$@" -af "volume=${KORR}dB"
 set -- "$@" "$TMP/A6-7-%01d.WAV" -y
 ffmpeg_lauf "$@" > "$ROH/A6-segment.txt" 2>&1 || true
+code_schreiben "A6-segment"
 normalisiere < "$ROH/A6-segment.txt" > "$ROH/A6-segment.normalisiert.txt"
 for datei in "$TMP"/A6-7-*.WAV; do
   [ -f "$datei" ] || continue
@@ -317,6 +334,7 @@ for quelle in "$QUELLEN"/stille-kurz.wav "$QUELLEN"/stille-lang.flac; do
   protokoll "$name"
   ffmpeg_lauf -i "$quelle" -af "silencedetect=n=-40dB:d=0.1" -hide_banner -f null /dev/null \
     > "$ROH/A7-silencedetect-$name.txt" 2>&1 || true
+  code_schreiben "A7-$name"
   normalisiere < "$ROH/A7-silencedetect-$name.txt" > "$ROH/A7-silencedetect-$name.normalisiert.txt"
 
   # Die App sammelt Zeilen, die mit [silencedetect beginnen, und nimmt den
@@ -381,6 +399,7 @@ if [ -n "$GRENZE" ]; then
   [ -n "$KORR" ] && set -- "$@" -af "volume=${KORR}dB"
   set -- "$@" "$TMP/A8-8-0.WAV"
   ffmpeg_lauf "$@" > "$ROH/A8-schnitt-0.txt" 2>&1 || true
+  code_schreiben "A8-schnitt-0"
   normalisiere < "$ROH/A8-schnitt-0.txt" > "$ROH/A8-schnitt-0.normalisiert.txt"
   [ -f "$TMP/A8-8-0.WAV" ] && messe "$TMP/A8-8-0.WAV" "A8-schnitt-0"
 else
@@ -396,6 +415,7 @@ ffmpeg_lauf -f lavfi -i "anullsrc=r=32000:cl=mono" -t 5 -acodec pcm_s16le -hide_
   -metadata "title=AA-1 Stille" -metadata "album=AA-1 Referenzalbum" \
   -metadata "comment=synthetisch" "$TMP/A10-stille.WAV" -y \
   > "$ROH/A10-stille.txt" 2>&1 || true
+code_schreiben "A10-stille"
 normalisiere < "$ROH/A10-stille.txt" > "$ROH/A10-stille.normalisiert.txt"
 [ -f "$TMP/A10-stille.WAV" ] && messe "$TMP/A10-stille.WAV" "A10-stille"
 
@@ -411,6 +431,7 @@ ffmpeg_lauf -i "$TMP/A11-eingang.WAV" -hide_banner \
   -metadata "comment=AA-1 geaenderter Kommentar" \
   -codec copy "$TMP/A11-temp.WAV" -y \
   > "$ROH/A11-metadaten.txt" 2>&1 || true
+code_schreiben "A11-metadaten"
 normalisiere < "$ROH/A11-metadaten.txt" > "$ROH/A11-metadaten.normalisiert.txt"
 [ -f "$TMP/A11-temp.WAV" ] && messe "$TMP/A11-temp.WAV" "A11-temp"
 
@@ -421,6 +442,7 @@ normalisiere < "$ROH/A11-metadaten.txt" > "$ROH/A11-metadaten.normalisiert.txt"
 echo "A12 ffmpeg convertWav2Flac (backupmanager.cpp:386-394)"
 ffmpeg_lauf -i "$TMP/A5-wav.WAV" -c:a flac -y -hide_banner "$TMP/A12-backup.flac" \
   > "$ROH/A12-wav2flac.txt" 2>&1 || true
+code_schreiben "A12-wav2flac"
 normalisiere < "$ROH/A12-wav2flac.txt" > "$ROH/A12-wav2flac.normalisiert.txt"
 [ -f "$TMP/A12-backup.flac" ] && messe "$TMP/A12-backup.flac" "A12-backup"
 
@@ -431,6 +453,7 @@ normalisiere < "$ROH/A12-wav2flac.txt" > "$ROH/A12-wav2flac.normalisiert.txt"
 echo "A13 ffmpeg convertFlac2Wav (backupmanager.cpp:404-411)"
 ffmpeg_lauf -i "$TMP/A12-backup.flac" -y -hide_banner -v quiet "$TMP/A13-restore.WAV" \
   > "$ROH/A13-flac2wav.txt" 2>&1 || true
+code_schreiben "A13-flac2wav"
 normalisiere < "$ROH/A13-flac2wav.txt" > "$ROH/A13-flac2wav.normalisiert.txt"
 [ -f "$TMP/A13-restore.WAV" ] && messe "$TMP/A13-restore.WAV" "A13-restore"
 

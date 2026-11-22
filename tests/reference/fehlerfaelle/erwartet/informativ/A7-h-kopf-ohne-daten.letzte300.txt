@@ -1,0 +1,8 @@
+ev/null':
+  Metadata:
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 pcm_s16le
+size=<FLUECHTIG>
+video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown

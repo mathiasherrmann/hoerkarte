@@ -1,0 +1,1 @@
+entfaellt: silencedetect schreibt nach /dev/null

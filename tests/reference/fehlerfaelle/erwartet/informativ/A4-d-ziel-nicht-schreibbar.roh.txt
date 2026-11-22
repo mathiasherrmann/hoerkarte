@@ -1,0 +1,1 @@
+entfaellt: volumedetect schreibt nach /dev/null

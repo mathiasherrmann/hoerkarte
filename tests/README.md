@@ -45,11 +45,13 @@ tests/
 ├── compare.sh                 vergleicht einen ffmpeg-Satz gegen die Referenz
 └── reference/
     ├── AUFRUFE.md             alle Aufrufe mit Datei und Zeilennummer
-    ├── ARCHIV.md              was außerhalb des Repositorys liegt, mit Prüfsummen
     ├── erzeuge-quellen.sh     erzeugt die Testdateien aus synthetischen Signalen
     ├── fehlerfaelle/          Rückgabecodes und Ausgaben bei fehlerhaften Eingaben
     │   ├── FEHLERFAELLE.md    die Auswertung als Tabelle je Aufruf
-    │   └── schlechte-eingaben/ die vier Prüfdateien, zusammen unter 2 KB
+    │   ├── schlechte-eingaben/ die versionierten Prüfdateien
+    │   └── erwartet/
+    │       ├── hart/          Rückgabecode, Fehlermarker, Ausgabedatei (Fehlerklasse)
+    │       └── informativ/    letzte 300 Zeichen und vollständige Rohausgabe
     ├── altes-ffmpeg/          Selbstauskunft des alten Binärsatzes
     │   ├── HERKUNFT.md        SHA-256, Architektur, Bibliotheksbindung
     │   ├── *.version.txt      Version und configure-Zeile
@@ -63,14 +65,15 @@ tests/
         │                      in normalisierter Fassung
         ├── geparst/           nur die Zeilen, die die App tatsächlich auswertet
         ├── erzeugte-wavs/     Messwerte und PCM-Prüfsummen der Ergebnisdateien
-        └── wav-koepfe/        Kopfbereich jeder Ergebnisdatei als Hexdump
+        ├── wav-koepfe/        Kopfbereich jeder Ergebnisdatei als Hexdump
+        └── ARCHIV.md          was außerhalb des Repositorys liegt, mit Prüfsummen
 ```
 
 ## Die erzeugten Audiodateien selbst
 
 Sie liegen **nicht** im Repository, sondern unter
 `/Users/mathias/Projekte/hoerkarte-archiv/aa1-ffmpeg-ausgaben/`, mit
-Prüfsummenliste und Herkunftsvermerk. `reference/ARCHIV.md` hält Ablageort und
+Prüfsummenliste und Herkunftsvermerk. `reference/erwartet/ARCHIV.md` hält Ablageort und
 Prüfsummen fest.
 
 Ein früherer Stand dieser Beschreibung nannte die Dateien „aus den Quellen
@@ -181,6 +184,16 @@ Gegenprobe zur Wirksamkeit: Mit absichtlich verfälschter Referenz (ein
 zwei Fehler und einen Hinweis und endet mit „NICHT BESTANDEN". Das Skript
 bestätigt also nicht stumm.
 
+### Rückgabecodes im Hauptlauf
+
+`lauf.sh` schreibt für jeden Aufruf A1 bis A13 den Rückgabecode nach
+`erwartet/geparst/<Kennung>.code.txt`. Weil alles unter `geparst/` hart
+verglichen wird, ist jede Abweichung ein Fehler. Das ist keine Buchhaltung
+ohne Zweck: A2 liefert auch im Erfolgsfall 1, A5 und A13 werten ausschließlich
+über den Code, und A3 ignoriert ihn vollständig. Verschiebt ein neues ffmpeg
+diese Zuordnung, ändert sich das Fehlerverhalten der App, ohne dass ein
+Erfolgsfall auffällig würde.
+
 ### Rückgabecodes und Fehlerfälle
 
 `reference/fehlerfaelle/FEHLERFAELLE.md` hält fest, welchen Rückgabecode jeder
@@ -196,6 +209,37 @@ dabei nicht selbstverständlich:
 * **Eine abgeschnittene WAV ohne Audiodaten wird überall akzeptiert.** Sie
   erhält Code 0, eine Dauer von 0,000703 Sekunden und landet als 134 Byte große
   Datei auf der Karte. Festgehalten als B13 in `AUFRUFE.md`.
+* **A3 bemerkt weder eine fehlende Quelldatei noch ein gesperrtes Ziel.** Die
+  Meldungen lauten `No such file or directory` und `Permission denied` und
+  enthalten weder „Error" noch „Invalid", nach denen A3 allein sucht. B14.
+* **Eine halbierte MP3 meldet die volle Dauer.** ffprobe gibt 6,034286
+  Sekunden zurück, wiederherstellbar sind 2,97. Die Liste zeigt 6 Sekunden,
+  auf der Karte landet die Hälfte. B15.
+
+Je Fehlerfall liegen fünf Dateien vor. Hart geprüft werden der Rückgabecode,
+das Vorkommen von „Error" und „Invalid" in den letzten 300 Zeichen in genau
+dieser Schreibweise, sowie ob eine Ausgabedatei entstand und wie groß sie ist.
+Informativ mitgeschrieben werden die letzten 300 Zeichen im Wortlaut und die
+vollständige Rohausgabe.
+
+Die Markerprüfung läuft bewusst auf der **rohen** Ausgabe, weil die App
+ebenfalls die rohe Ausgabe sieht; nur so stimmt das Ergebnis mit ihrem
+Verhalten überein. Der informative 300-Zeichen-Auszug wird dagegen **vor** dem
+Schnitt normalisiert: andernfalls zerschneidet die Grenze eine Speicheradresse,
+und das Bruchstück entzieht sich jeder Normalisierung.
+
+Der Fall (c) ist zusätzlich für fünf weitere Quellformate erhoben
+(`halb-kapitel.m4b`, `halb-backup.flac`, `halb-ton.m4a`, `.ogg`, `.wma`,
+`.flac`), weil das Verhalten vollständig am Container hängt: MP4 scheitert
+sauber, FLAC meldet die volle Dauer der ursprünglichen Datei, und bei WMA und
+FLAC endet ffmpeg mit Code 0, obwohl es `Error while decoding` ausgibt. B16.
+
+Die fehlerhaften Eingaben sind **versioniert, nicht generiert**: `zufall.mp3`
+wäre sonst bei jedem Lauf anders und `compare.sh` nicht reproduzierbar. Fall
+(d), das nicht beschreibbare Ausgabeziel, entsteht dagegen zur Laufzeit als
+Verzeichnis mit Rechten `0500`, weil git Verzeichnisrechte nicht abbildet. Er
+entfällt bei A1, A2, A4 und A7, die keine Ausgabedatei schreiben; das ist je
+Zelle als `entfaellt` vermerkt statt stillschweigend ausgelassen.
 
 ### Was die Referenz nicht abdeckt
 

@@ -1,0 +1,1 @@
+entfaellt: ffprobe schreibt keine Ausgabedatei

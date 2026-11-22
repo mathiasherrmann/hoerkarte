@@ -1,0 +1,2 @@
+ausgabedatei: entfaellt (dieser Aufruf schreibt keine Datei)
+groesse: entfaellt

@@ -11,6 +11,12 @@
 #           · Chunk-Reihenfolge und Größe des data-Chunks
 #           · Metadaten title, album, comment
 #
+#   FEHLER  · bei den Fehlerfällen: Rückgabecode, das Vorkommen von "Error"
+#             und "Invalid" in den letzten 300 Zeichen, sowie ob eine
+#             Ausgabedatei entstand und wie groß sie ist. Genau diese drei
+#             Dinge wertet die App aus; verschiebt sich eines davon,
+#             verschiebt sich ihr Fehlerverhalten.
+#
 #   HINWEIS · Prüfsumme über die reinen PCM-Daten. Ein anderer Encoder darf
 #             bitweise abweichen, solange Format und Struktur stimmen.
 #           · Länge des LIST/INFO-Chunks, Dateigröße, Bitrate und die daraus
@@ -29,6 +35,7 @@ HIER="$(cd "$(dirname "$0")" && pwd)"
 REFERENZ="${2:-$HIER/reference}"
 ERWARTET="$REFERENZ/erwartet"
 QUELLEN="$REFERENZ/quellen"
+FEHLER_ERWARTET="$REFERENZ/fehlerfaelle/erwartet"
 
 [ -d "$ERWARTET" ] || { echo "Referenz fehlt: $ERWARTET" >&2; exit 2; }
 [ -d "$QUELLEN" ]  || { echo "Quellen fehlen: $QUELLEN" >&2; exit 2; }
@@ -146,6 +153,50 @@ for ref in "$ERWARTET"/rohausgaben/*.normalisiert.txt; do
   diff -q "$ref" "$ist" > /dev/null || abweichend=$((abweichend + 1))
 done
 echo "        $abweichend von $(ls "$ERWARTET"/rohausgaben/*.normalisiert.txt 2>/dev/null | wc -l | tr -d ' ') normalisierten Rohausgaben unterscheiden sich"
+
+# ---------------------------------------------------------------------------
+# 5. Fehlerfälle: Rückgabecode, Fehlermarker und Ausgabedatei.
+#    Alles drei ist Fehlerklasse. Die letzten 300 Zeichen im Wortlaut und die
+#    vollständige Rohausgabe werden nur gezählt.
+# ---------------------------------------------------------------------------
+echo "--- Fehlerfälle ---"
+if [ ! -d "$FEHLER_ERWARTET/hart" ]; then
+  melde_hinweis "keine Fehlerfall-Referenz unter $FEHLER_ERWARTET/hart — Abschnitt übersprungen"
+else
+  FEHLER_IST="$IST/fehlerfaelle"
+  "$HIER/lauf-fehlerfaelle.sh" "$FFDIR" "$QUELLEN" "$FEHLER_IST" > "$IST/fehlerfaelle.log" 2>&1
+  fcode=$?
+  if [ $fcode -ne 0 ]; then
+    melde_fehler "lauf-fehlerfaelle.sh brach mit Code $fcode ab:"
+    tail -20 "$IST/fehlerfaelle.log" | sed 's/^/        /'
+  else
+    for ref in "$FEHLER_ERWARTET"/hart/*; do
+      name="$(basename "$ref")"
+      ist="$FEHLER_IST/hart/$name"
+      if [ ! -f "$ist" ]; then
+        melde_fehler "fehlerfaelle/hart/$name fehlt beim Prüfling"
+        continue
+      fi
+      if ! diff -q "$ref" "$ist" > /dev/null; then
+        melde_fehler "fehlerfaelle/hart/$name weicht ab:"
+        diff -u "$ref" "$ist" | sed -n '3,$p' | sed 's/^/        /'
+      fi
+    done
+    for ist in "$FEHLER_IST"/hart/*; do
+      name="$(basename "$ist")"
+      [ -f "$FEHLER_ERWARTET/hart/$name" ] || melde_fehler "fehlerfaelle/hart/$name ist beim Prüfling neu"
+    done
+
+    abw_info=0
+    for ref in "$FEHLER_ERWARTET"/informativ/*; do
+      name="$(basename "$ref")"
+      ist="$FEHLER_IST/informativ/$name"
+      [ -f "$ist" ] || continue
+      diff -q "$ref" "$ist" > /dev/null || abw_info=$((abw_info + 1))
+    done
+    echo "        $abw_info von $(ls "$FEHLER_ERWARTET"/informativ 2>/dev/null | wc -l | tr -d ' ') informativen Fehlerfall-Dateien unterscheiden sich"
+  fi
+fi
 
 # ---------------------------------------------------------------------------
 echo

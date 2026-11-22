@@ -1,0 +1,5 @@
+btitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0xADRESSE] n_samples: 262750
+[Parsed_volumedetect_0 @ 0xADRESSE] mean_volume: -24.3 dB
+[Parsed_volumedetect_0 @ 0xADRESSE] max_volume: -21.3 dB
+[Parsed_volumedetect_0 @ 0xADRESSE] histogram_21db: 64472

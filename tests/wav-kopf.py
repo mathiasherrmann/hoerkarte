@@ -60,16 +60,26 @@ def main():
 
     # Bis einschließlich des data-/SSND-Chunk-Headers, danach beginnen die
     # Audiodaten und sind für den Kopfvergleich ohne Belang.
+    #
+    # Nicht jede Datei hat einen solchen Chunk: ein FLAC- oder MP3-Strom ist
+    # nicht chunkbasiert. Dann greift der Vorgabewert, und die Beschriftung
+    # muss das auch sagen, statt einen data-Chunk zu behaupten, den es nicht
+    # gibt.
     ende = grenze
+    bis_data = False
     if chunks:
         for cid, off, _ in chunks:
             if cid in ("data", "SSND"):
                 ende = min(off + 8, len(daten))
+                bis_data = True
                 break
 
     print("# Kopfbereich von %s" % pfad.split("/")[-1])
     print("# Gesamtgroesse der Datei: %d Byte" % len(daten))
-    print("# Gedumpt: %d Byte (bis einschliesslich data-Chunk-Header)" % ende)
+    if bis_data:
+        print("# Gedumpt: %d Byte (bis einschliesslich data-Chunk-Header)" % ende)
+    else:
+        print("# Gedumpt: %d Byte (kein data-Chunk vorhanden, Vorgabewert)" % ende)
     if chunks:
         print("# Chunks: %s" % " ".join(c[0] for c in chunks))
     print()

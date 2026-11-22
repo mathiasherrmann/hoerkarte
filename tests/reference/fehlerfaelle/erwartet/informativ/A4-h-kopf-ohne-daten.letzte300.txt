@@ -1,0 +1,6 @@
+avc58.48.101 pcm_s16le
+size=<FLUECHTIG>
+video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0xADRESSE] n_samples: 60
+[Parsed_volumedetect_0 @ 0xADRESSE] mean_volume: -23.6 dB
+[Parsed_volumedetect_0 @ 0xADRESSE] max_volume: -21.1 dB

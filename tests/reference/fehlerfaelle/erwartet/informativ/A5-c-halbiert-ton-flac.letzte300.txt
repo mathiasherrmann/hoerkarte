@@ -1,0 +1,6 @@
+      : Lavc58.48.101 pcm_s16le
+[flac @ 0xADRESSE] invalid residual
+[flac @ 0xADRESSE] decode_frame() failed
+Error while decoding stream #0:0: Invalid data found when processing input
+size=<FLUECHTIG>
+video:0kB audio:170kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.077068%

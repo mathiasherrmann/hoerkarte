@@ -1,0 +1,5 @@
+      encoder         : Lavc58.48.101 pcm_s16le
+[wmav2 @ 0xADRESSE] Input packet size too small (166 < 1114)
+Error while decoding stream #0:0: Invalid data found when processing input
+size=<FLUECHTIG>
+video:0kB audio:189kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.069361%

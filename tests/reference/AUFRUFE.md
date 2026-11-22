@@ -335,3 +335,51 @@ fort.
   übrigen vier Prüffälle (0 Byte, Textdatei mit `.mp3`, abgeschnittene MP3,
   nicht vorhandene Datei) werden dagegen überall korrekt mit Code 1 abgewiesen.
   Ein eigener Prüffall für AA-3; der Plan führt ihn bisher nicht.
+* **B14 (neu), gemessen in AA-1b, `audiobookconverter.cpp:125-144`:** A3 wertet
+  ausschliesslich den Text aus und ignoriert den Rückgabecode. Gemessen wurde,
+  dass genau dadurch echte Fehlschläge unbemerkt bleiben. Bei einer nicht
+  vorhandenen Quelldatei lautet die Ausgabe `No such file or directory`, bei
+  einem nicht beschreibbaren Ausgabeziel `Permission denied`. **Beide enthalten
+  weder „Error" noch „Invalid"**, also schlägt die Bedingung nicht an, und es
+  wird kein `failed()` ausgelöst. Verschärfend: Die Prüfung, ob die
+  Ausgabedatei überhaupt existiert, steht *innerhalb* dieser Bedingung
+  (`:131-144`) und wird deshalb ebenfalls nie erreicht. Der Pfad ist zu diesem
+  Zeitpunkt aber schon in `info_list` eingetragen (`:121`). Ergebnis: Die
+  Kapitelliste enthält einen Pfad auf eine Datei, die es nicht gibt, und
+  niemand erfährt davon. Nur der Fall „zufälliger Inhalt" wird erkannt, weil
+  ffmpeg dort `Invalid data found when processing input` meldet.
+* **B15 (neu), gemessen in AA-1b:** Eine nach der Hälfte ihrer Bytes
+  abgeschnittene MP3 wird von der gesamten Kette als gültig behandelt. ffprobe
+  meldet Rückgabecode 0 und als Dauer **6,034286 Sekunden** — die Dauer der
+  *vollständigen* Datei, weil der Xing-Header die ursprüngliche Frame-Anzahl
+  enthält und ffprobe ihm folgt. Tatsächlich wiederherstellbar sind 2,97
+  Sekunden: `convertToWav` liefert Code 0 und eine Datei von 190.784 Byte, also
+  2,97 Sekunden bei 64.000 Byte je Sekunde. Die Folge reicht weiter als der
+  einzelne Eintrag: `playlistview.cpp:198` rechnet den Platzbedarf aus der
+  gemeldeten Dauer, also mit 6 Sekunden, und die Liste zeigt 6 Sekunden an,
+  während auf der Karte die Hälfte landet. Derselbe Effekt trifft A4, das den
+  Maximalpegel über die halbe Datei misst und daraus eine Korrektur für das
+  Ganze ableitet, und A13 beim Zurückspielen eines Backups.
+* **B16 (neu), gemessen im Nachtrag zu AA-1b:** Wie eine beschädigte Datei
+  durchkommt, hängt vollständig am Quellformat, und in drei von vier Fällen
+  kommt sie durch.
+
+  Ein MP4-Container scheitert sauber: `halb-kapitel.m4b` und `halb-ton.m4a`
+  werden mit Code 1 abgewiesen, weil die Indextabelle `moov` am Dateiende
+  fehlt. FLAC dagegen meldet über `STREAMINFO` die Gesamtzahl der Samples der
+  *ursprünglichen* Datei; ffprobe gibt für eine halbierte FLAC glatte
+  **6.000000** Sekunden an, wiederherstellbar sind 2,72. Ogg meldet 2,02 und
+  liefert 2,02, ist also ehrlich; WMA meldet 4,322 und liefert 3,02.
+
+  Der schwerwiegende Teil: Bei `halb-ton.wma` und `halb-ton.flac` schreibt
+  ffmpeg wörtlich `Error while decoding stream #0:0: Invalid data found when
+  processing input` und **beendet sich trotzdem mit Code 0**. `convertToWav`
+  wertet nur `output.first==0` (`hoerbertprocessor.cpp:385`) und zählt das als
+  Erfolg; auf der Karte landen 45 bis 50 Prozent des Hörstücks. Dieselbe
+  Meldung enthält beide Wörter, auf die A3 prüft — die Information liegt also
+  vor, A5 liest sie nur nicht. Für AA-3 heißt das: Der Rückgabecode allein ist
+  als Erfolgskriterium nachweislich untauglich. Eine zusätzliche Textprüfung
+  auf `Error while decoding` würde fünf der acht stillen Fälle abfangen; der
+  Vollständigkeit halber bleibt nur ein Abgleich der erzeugten Dauer gegen die
+  erwartete.
+

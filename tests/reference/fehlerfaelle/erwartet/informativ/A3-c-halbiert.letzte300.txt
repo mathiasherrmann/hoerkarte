@@ -1,0 +1,6 @@
+ ISFT            : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 pcm_s16le
+size=<FLUECHTIG>
+video:0kB audio:125kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.071875%

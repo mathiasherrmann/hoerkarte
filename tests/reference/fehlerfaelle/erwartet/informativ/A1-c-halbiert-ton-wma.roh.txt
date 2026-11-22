@@ -1,0 +1,17 @@
+{
+    "format": {
+        "filename": "<SCHLECHT>/halb-ton.wma",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "asf",
+        "format_long_name": "ASF (Advanced / Active Streaming Format)",
+        "start_time": "0.000000",
+        "duration": "4.322000",
+        "size": "104272",
+        "bit_rate": "193006",
+        "probe_score": 100,
+        "tags": {
+            "encoder": "Lavf58.27.100"
+        }
+    }
+}

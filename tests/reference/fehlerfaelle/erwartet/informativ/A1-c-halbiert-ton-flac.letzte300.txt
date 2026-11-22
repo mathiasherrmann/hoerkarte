@@ -1,0 +1,13 @@
+": 0,
+        "format_name": "flac",
+        "format_long_name": "raw FLAC",
+        "start_time": "0.000000",
+        "duration": "6.000000",
+        "size": "43633",
+        "bit_rate": "58177",
+        "probe_score": 100,
+        "tags": {
+            "ENCODER": "Lavf58.27.100"
+        }
+    }
+}

@@ -1,6 +1,6 @@
 # Kopfbereich von A12-backup.flac
 # Gesamtgroesse der Datei: 131589 Byte
-# Gedumpt: 512 Byte (bis einschliesslich data-Chunk-Header)
+# Gedumpt: 512 Byte (kein data-Chunk vorhanden, Vorgabewert)
 
 00000000  66 4c 61 43 00 00 00 22 09 00 09 00 00 02 68 00  |fLaC..."......h.|
 00000010  07 d1 07 d0 00 f0 00 02 ee 00 ff b4 45 09 18 f0  |............E...|

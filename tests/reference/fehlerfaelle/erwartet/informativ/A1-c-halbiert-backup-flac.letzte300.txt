@@ -1,0 +1,12 @@
+duration": "6.000000",
+        "size": "65794",
+        "bit_rate": "87725",
+        "probe_score": 100,
+        "tags": {
+            "comment": "ton.wav",
+            "TITLE": "AA-1 Referenztitel",
+            "ALBUM": "AA-1 Referenzalbum",
+            "ENCODER": "Lavf58.27.100"
+        }
+    }
+}

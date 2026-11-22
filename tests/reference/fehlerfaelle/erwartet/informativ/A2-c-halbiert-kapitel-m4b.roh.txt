@@ -1,0 +1,2 @@
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xADRESSE] moov atom not found
+<SCHLECHT>/halb-kapitel.m4b: Invalid data found when processing input

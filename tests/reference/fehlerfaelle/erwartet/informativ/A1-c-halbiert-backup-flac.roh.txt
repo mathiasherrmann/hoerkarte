@@ -1,0 +1,20 @@
+{
+    "format": {
+        "filename": "<SCHLECHT>/halb-backup.flac",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "flac",
+        "format_long_name": "raw FLAC",
+        "start_time": "0.000000",
+        "duration": "6.000000",
+        "size": "65794",
+        "bit_rate": "87725",
+        "probe_score": 100,
+        "tags": {
+            "comment": "ton.wav",
+            "TITLE": "AA-1 Referenztitel",
+            "ALBUM": "AA-1 Referenzalbum",
+            "ENCODER": "Lavf58.27.100"
+        }
+    }
+}
