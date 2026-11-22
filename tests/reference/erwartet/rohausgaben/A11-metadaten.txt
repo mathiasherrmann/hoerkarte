@@ -1,0 +1,21 @@
+Guessed Channel Layout for Input Stream #0.0 : mono
+Input #0, wav, from '/Users/mathias/Projekte/hoerkarte/tests/reference/erwartet/tmp/A11-eingang.WAV':
+  Metadata:
+    comment         : ton.wav
+    title           : AA-1 Referenztitel
+    album           : AA-1 Referenzalbum
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.00, bitrate: 512 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+Output #0, wav, to '/Users/mathias/Projekte/hoerkarte/tests/reference/erwartet/tmp/A11-temp.WAV':
+  Metadata:
+    IPRD            : AA-1 geaendertes Album
+    ICMT            : AA-1 geaenderter Kommentar
+    INAM            : AA-1 geaenderter Titel
+    ISFT            : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Press [q] to stop, [?] for help
+size=     375kB time=00:00:05.95 bitrate= 516.4kbits/s speed=1.58e+04x    
+video:0kB audio:375kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.046354%

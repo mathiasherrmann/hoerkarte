@@ -1,0 +1,17 @@
+{
+    "format": {
+        "filename": "/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.flac",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "flac",
+        "format_long_name": "raw FLAC",
+        "start_time": "0.000000",
+        "duration": "6.000000",
+        "size": "87266",
+        "bit_rate": "116354",
+        "probe_score": 100,
+        "tags": {
+            "ENCODER": "Lavf58.27.100"
+        }
+    }
+}

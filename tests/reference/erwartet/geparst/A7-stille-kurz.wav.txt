@@ -1,0 +1,5 @@
+silence_start: 2.99998
+silence_end: 5.00005 | silence_duration: 2.00007
+silence_start: 8
+silence_end: 10 | silence_duration: 2.00002
+Duration: 00:00:13.00

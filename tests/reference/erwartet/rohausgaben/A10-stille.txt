@@ -1,0 +1,17 @@
+Input #0, lavfi, from 'anullsrc=r=32000:cl=mono':
+  Duration: N/A, start: 0.000000, bitrate: 256 kb/s
+    Stream #0:0: Audio: pcm_u8, 32000 Hz, mono, u8, 256 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_u8 (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to '/Users/mathias/Projekte/hoerkarte/tests/reference/erwartet/tmp/A10-stille.WAV':
+  Metadata:
+    INAM            : AA-1 Stille
+    IPRD            : AA-1 Referenzalbum
+    ICMT            : synthetisch
+    ISFT            : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 pcm_s16le
+size=     313kB time=00:00:05.00 bitrate= 512.2kbits/s speed=2.22e+03x    
+video:0kB audio:312kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.045625%

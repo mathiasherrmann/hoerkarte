@@ -1,0 +1,36 @@
+# ffprobe-Formatangaben
+format_format_name: wav
+format_duration: 5.000000
+format_size: 320146
+format_bit_rate: 512233
+format_nb_streams: 1
+tag_album: AA-1 Referenzalbum
+tag_comment: synthetisch
+tag_encoder: Lavf58.27.100
+tag_title: AA-1 Stille
+stream_codec_name: pcm_s16le
+stream_sample_fmt: s16
+stream_sample_rate: 32000
+stream_channels: 1
+stream_channel_layout: None
+stream_bits_per_sample: 16
+stream_duration: 5.000000
+# RIFF-Struktur
+datei_bytes: 320146
+container: RIFF
+form: WAVE
+chunk_anzahl: 3
+# Chunks in Dateireihenfolge: ID Offset Groesse
+chunk: fmt        12         16
+chunk: LIST       36         94
+chunk: data      138     320000
+fmt_codec_tag: 1
+fmt_kanaele: 1
+fmt_abtastrate: 32000
+fmt_byte_pro_sekunde: 64000
+fmt_blockausrichtung: 2
+fmt_bittiefe: 16
+fmt_fmt_chunk_groesse: 16
+header_bytes_vor_data: 146
+data_bytes: 320000
+dauer_aus_data_sekunden: 5.000000

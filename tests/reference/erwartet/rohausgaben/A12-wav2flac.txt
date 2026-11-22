@@ -1,0 +1,23 @@
+Guessed Channel Layout for Input Stream #0.0 : mono
+Input #0, wav, from '/Users/mathias/Projekte/hoerkarte/tests/reference/erwartet/tmp/A5-wav.WAV':
+  Metadata:
+    comment         : ton.wav
+    title           : AA-1 Referenztitel
+    album           : AA-1 Referenzalbum
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.00, bitrate: 512 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> flac (native))
+Press [q] to stop, [?] for help
+Output #0, flac, to '/Users/mathias/Projekte/hoerkarte/tests/reference/erwartet/tmp/A12-backup.flac':
+  Metadata:
+    DESCRIPTION     : ton.wav
+    title           : AA-1 Referenztitel
+    album           : AA-1 Referenzalbum
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: flac, 32000 Hz, mono, s16, 128 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 flac
+size=     129kB time=00:00:06.00 bitrate= 175.5kbits/s speed=1.16e+03x    
+video:0kB audio:120kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 6.790184%

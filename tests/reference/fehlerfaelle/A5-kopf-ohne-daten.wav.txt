@@ -1,0 +1,26 @@
+[wav @ 0xADRESSE] Estimating duration from bitrate, this may be inaccurate
+Guessed Channel Layout for Input Stream #0.0 : stereo
+Input #0, wav, from '<SCHLECHT>/kopf-ohne-daten.wav':
+  Metadata:
+    encoder         : Lavf58.27.100
+  Duration: 00:00:00.00, bitrate: 2275 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+<SCHLECHT>/kopf-ohne-daten.wav: corrupt input packet in stream 0
+[pcm_s16le @ 0xADRESSE] Multiple frames in a packet.
+[pcm_s16le @ 0xADRESSE] Invalid PCM packet, data has size 2 but at least a size of 4 was expected
+Error while decoding stream #0:0: Invalid data found when processing input
+Output #0, wav, to '<TMP>/A5-kopf-ohne-daten.wav.WAV':
+  Metadata:
+    ICMT            : kopf-ohne-daten.wav
+    INAM            : AA-1b
+    IPRD            : AA-1b
+    ISFT            : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 pcm_s16le
+size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    
+video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+Output file is empty, nothing was encoded (check -ss / -t / -frames parameters if used)

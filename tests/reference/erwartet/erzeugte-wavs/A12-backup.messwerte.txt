@@ -1,0 +1,21 @@
+# ffprobe-Formatangaben
+format_format_name: flac
+format_duration: 6.000000
+format_size: 131589
+format_bit_rate: 175452
+format_nb_streams: 1
+tag_album: AA-1 Referenzalbum
+tag_encoder: Lavf58.27.100
+tag_title: AA-1 Referenztitel
+tag_comment: ton.wav
+stream_codec_name: flac
+stream_sample_fmt: s16
+stream_sample_rate: 32000
+stream_channels: 1
+stream_channel_layout: mono
+stream_bits_per_sample: 0
+stream_duration: 6.000000
+# RIFF-Struktur
+datei_bytes: 131589
+container: fLaC
+chunkstruktur: nicht anwendbar (kein RIFF/FORM-Container)
