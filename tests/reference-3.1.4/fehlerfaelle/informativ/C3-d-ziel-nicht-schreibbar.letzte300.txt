@@ -1,0 +1,5 @@
+ng '<SPERRE>/C3-d-ziel-nicht-schreibbar-0.MP3' for writing
+[segment @ 0xADRESSE] Failed to open segment '<SPERRE>/C3-d-ziel-nicht-schreibbar-0.MP3'
+Could not write header for output file #0 (incorrect codec parameters ?): Permission denied
+Error initializing output stream 0:0 -- 
+Conversion failed!

@@ -1,0 +1,17 @@
+format_format_name: flac
+format_duration: 6.000000
+format_size: 74297
+format_bit_rate: 99062
+format_nb_streams: 1
+tag_album: AA-1c Album
+tag_encoder: Lavf58.27.100
+tag_title: AA-1c Titel
+tag_comment: /Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.wav
+stream_codec_name: flac
+stream_sample_fmt: s16
+stream_sample_rate: 32000
+stream_channels: 1
+stream_channel_layout: mono
+stream_bits_per_sample: 0
+stream_bit_rate: None
+stream_duration: 6.000000

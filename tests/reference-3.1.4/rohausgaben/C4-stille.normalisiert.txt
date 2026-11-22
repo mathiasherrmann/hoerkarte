@@ -1,0 +1,17 @@
+Input #0, lavfi, from 'anullsrc=r=44100:cl=stereo':
+  Duration: N/A, start: 0.000000, bitrate: 705 kb/s
+    Stream #0:0: Audio: pcm_u8, 44100 Hz, stereo, u8, 705 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_u8 (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to '<AUDIO>/C4-stille.MP3':
+  Metadata:
+    TIT2            : AA-1c Stille
+    TALB            : AA-1c Referenzalbum
+    comment         : synthetisch
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, s16p, 128 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=<FLUECHTIG>
+video:0kB audio:79kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.679344%

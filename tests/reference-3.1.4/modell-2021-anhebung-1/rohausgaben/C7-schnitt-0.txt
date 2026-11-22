@@ -1,0 +1,19 @@
+Input #0, flac, from '/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/stille-lang.flac':
+  Metadata:
+    ENCODER         : Lavf58.27.100
+  Duration: 00:06:51.00, start: 0.000000, bitrate: 87 kb/s
+    Stream #0:0: Audio: flac, 44100 Hz, stereo, s16
+Stream mapping:
+  Stream #0:0 -> #0:0 (flac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2021-anhebung-1/C7-8-0.MP3':
+  Metadata:
+    comment         : stille-lang.flac
+    TIT2            : AA-1c Schnitt 1
+    TALB            : AA-1c Album
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, fltp (16 bit), 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=    2048kB time=00:01:36.15 bitrate= 174.5kbits/s speed= 192x    size=    4352kB time=00:03:12.91 bitrate= 184.8kbits/s speed= 193x    size=    4760kB time=00:03:23.02 bitrate= 192.1kbits/s speed= 194x    
+video:0kB audio:4759kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.015534%

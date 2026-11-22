@@ -1,0 +1,9 @@
+kapitel_1_start: 0.000000
+kapitel_1_end: 2.000000
+kapitel_1_title: Kapitel Eins
+kapitel_2_start: 2.000000
+kapitel_2_end: 4.000000
+kapitel_2_title: Kapitel Zwei
+kapitel_3_start: 4.000000
+kapitel_3_end: 6.000000
+kapitel_3_title: Kapitel Drei

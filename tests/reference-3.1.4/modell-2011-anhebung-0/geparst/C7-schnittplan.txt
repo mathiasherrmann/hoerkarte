@@ -1,0 +1,4 @@
+gesamtlaenge: 411.000
+chunk_count: 2
+schnittgrenze_0: 203.0
+schnittgrenze_1: 391.0

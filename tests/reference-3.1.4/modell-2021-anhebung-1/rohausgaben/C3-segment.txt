@@ -1,0 +1,22 @@
+Input #0, flac, from '/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/stille-lang.flac':
+  Metadata:
+    ENCODER         : Lavf58.27.100
+  Duration: 00:06:51.00, start: 0.000000, bitrate: 87 kb/s
+    Stream #0:0: Audio: flac, 44100 Hz, stereo, s16
+Stream mapping:
+  Stream #0:0 -> #0:0 (flac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+[segment @ 0x7fe8b600f000] Opening '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2021-anhebung-1/C3-7-0.MP3' for writing
+Output #0, segment, to '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2021-anhebung-1/C3-7-%01d.MP3':
+  Metadata:
+    comment         : stille-lang.flac
+    title           : AA-1c Segment
+    album           : AA-1c Album
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, fltp (16 bit), 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=N/A time=00:01:33.65 bitrate=N/A speed= 187x    [segment @ 0x7fe8b600f000] Opening '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2021-anhebung-1/C3-7-1.MP3' for writing
+size=N/A time=00:03:08.10 bitrate=N/A speed= 188x    size=N/A time=00:04:37.55 bitrate=N/A speed= 185x    [segment @ 0x7fe8b600f000] Opening '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2021-anhebung-1/C3-7-2.MP3' for writing
+size=N/A time=00:06:04.17 bitrate=N/A speed= 182x    size=N/A time=00:06:51.01 bitrate=N/A speed= 182x    
+video:0kB audio:9634kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown

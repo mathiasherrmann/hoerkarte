@@ -1,0 +1,6 @@
+[0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+[mp3 @ 0xADRESSE] Invalid audio stream. Exactly one MP3 audio stream is required.
+Could not write header for output file #0 (incorrect codec parameters ?): Invalid argument
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+    Last message repeated 1 times

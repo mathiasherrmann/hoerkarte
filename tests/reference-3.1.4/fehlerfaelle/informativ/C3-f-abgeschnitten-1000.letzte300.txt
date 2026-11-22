@@ -1,0 +1,4 @@
+[mp3 @ 0xADRESSE] Format mp3 detected only with low score of 1, misdetection possible!
+[mp3 @ 0xADRESSE] filesize and duration do not match (growing file?)
+[mp3 @ 0xADRESSE] Invalid frame size (626): Could not seek to 1297.
+<SCHLECHT>/abgeschnitten.mp3: Invalid argument

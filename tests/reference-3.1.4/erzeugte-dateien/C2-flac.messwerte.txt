@@ -1,0 +1,14 @@
+format_format_name: mp3
+format_duration: 6.034286
+format_size: 145493
+format_bit_rate: 192888
+format_nb_streams: 1
+tag_encoder: Lavf58.27.100
+stream_codec_name: mp3
+stream_codec_long_name: MP3 (MPEG audio layer 3)
+stream_sample_fmt: fltp
+stream_sample_rate: 44100
+stream_channels: 2
+stream_channel_layout: stereo
+stream_bit_rate: 192000
+stream_duration: 6.034286

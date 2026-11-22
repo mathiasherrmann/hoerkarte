@@ -1,0 +1,20 @@
+{
+    "format": {
+        "filename": "/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.m4a",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "6.024000",
+        "size": "88480",
+        "bit_rate": "117503",
+        "probe_score": 100,
+        "tags": {
+            "major_brand": "M4A ",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2",
+            "encoder": "Lavf58.27.100"
+        }
+    }
+}

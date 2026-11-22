@@ -1,0 +1,8 @@
+.flac':
+  Metadata:
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: flac, 44100 Hz, stereo, s32 (24 bit), 128 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 flac
+size=<FLUECHTIG>
+video:0kB audio:149kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 5.436180%

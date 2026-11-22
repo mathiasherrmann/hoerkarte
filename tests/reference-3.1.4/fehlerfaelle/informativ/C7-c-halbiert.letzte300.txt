@@ -1,0 +1,7 @@
+       : a
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=<FLUECHTIG>
+video:0kB audio:48kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.468273%

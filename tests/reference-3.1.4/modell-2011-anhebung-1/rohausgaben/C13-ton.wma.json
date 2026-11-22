@@ -1,0 +1,17 @@
+{
+    "format": {
+        "filename": "/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.wma",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "asf",
+        "format_long_name": "ASF (Advanced / Active Streaming Format)",
+        "start_time": "0.000000",
+        "duration": "6.036000",
+        "size": "208544",
+        "bit_rate": "276400",
+        "probe_score": 100,
+        "tags": {
+            "encoder": "Lavf58.27.100"
+        }
+    }
+}

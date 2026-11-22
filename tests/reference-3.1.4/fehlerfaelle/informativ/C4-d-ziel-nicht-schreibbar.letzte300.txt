@@ -1,0 +1,4 @@
+Input #0, lavfi, from 'anullsrc=r=44100:cl=stereo':
+  Duration: N/A, start: 0.000000, bitrate: 705 kb/s
+    Stream #0:0: Audio: pcm_u8, 44100 Hz, stereo, u8, 705 kb/s
+<SPERRE>/C4-d-ziel-nicht-schreibbar.MP3: Permission denied

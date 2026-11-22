@@ -1,0 +1,25 @@
+Input #0, mp3, from '<AUDIO>/C1-wav.MP3':
+  Metadata:
+    comment         : <QUELLEN>/ton.wav
+    title           : AA-1c Titel
+    album           : AA-1c Album
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.03, start: 0.025057, bitrate: 193 kb/s
+    Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48
+Stream mapping:
+  Stream #0:0 -> #0:0 (mp3 (mp3float) -> flac (native))
+Press [q] to stop, [?] for help
+[flac @ 0xADRESSE] encoding as 24 bits-per-sample
+Output #0, flac, to '<AUDIO>/C11-backup.flac':
+  Metadata:
+    DESCRIPTION     : <QUELLEN>/ton.wav
+    title           : AA-1c Titel
+    album           : AA-1c Album
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: flac, 44100 Hz, stereo, s32 (24 bit), 128 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 flac
+size=<FLUECHTIG>
+video:0kB audio:411kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.996634%

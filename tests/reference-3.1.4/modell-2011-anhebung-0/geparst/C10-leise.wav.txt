@@ -1,0 +1,4 @@
+[Parsed_volumedetect_0 @ 0xADRESSE] n_samples: 529200
+[Parsed_volumedetect_0 @ 0xADRESSE] mean_volume: -54.1 dB
+[Parsed_volumedetect_0 @ 0xADRESSE] max_volume: -51.0 dB
+[Parsed_volumedetect_0 @ 0xADRESSE] histogram_51db: 151200

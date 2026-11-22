@@ -1,0 +1,24 @@
+Input #0, mp3, from '<AUDIO>/C5-eingang.MP3':
+  Metadata:
+    comment         : <QUELLEN>/ton.wav
+    title           : AA-1c Referenztitel
+    album           : AA-1c Referenzalbum
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.03, start: 0.025057, bitrate: 193 kb/s
+    Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48
+Output #0, mp3, to '<AUDIO>/C5-temp.MP3':
+  Metadata:
+    TALB            : AA-1c geaendertes Album
+    comment         : AA-1c geaenderter Kommentar
+    TIT2            : AA-1c geaenderter Titel
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Press [q] to stop, [?] for help
+size=<FLUECHTIG>
+video:0kB audio:141kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.544116%

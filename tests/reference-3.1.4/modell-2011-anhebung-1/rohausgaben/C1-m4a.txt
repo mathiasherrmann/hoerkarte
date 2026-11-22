@@ -1,0 +1,28 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.m4a':
+  Metadata:
+    major_brand     : M4A 
+    minor_version   : 512
+    compatible_brands: isomiso2
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.02, start: 0.000000, bitrate: 117 kb/s
+    Stream #0:0(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 115 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2011-anhebung-1/C1-m4a.WAV':
+  Metadata:
+    major_brand     : M4A 
+    minor_version   : 512
+    compatible_brands: isomiso2
+    ICMT            : /Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.m4a
+    INAM            : AA-1c Titel
+    IPRD            : AA-1c Album
+    ISFT            : Lavf58.27.100
+    Stream #0:0(und): Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+      encoder         : Lavc58.48.101 pcm_s16le
+size=     376kB time=00:00:06.01 bitrate= 512.3kbits/s speed= 888x    
+video:0kB audio:376kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.049884%

@@ -1,0 +1,20 @@
+[mp3 @ 0xADRESSE] filesize and duration do not match (growing file?)
+Input #0, mp3, from '<SCHLECHT>/halb-ton.mp3':
+  Metadata:
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.03, start: 0.025057, bitrate: 96 kb/s
+    Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48
+Stream mapping:
+  Stream #0:0 -> #0:0 (mp3 (mp3float) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to '<TMP>/C9-c-halbiert.MP3':
+  Metadata:
+    TIT2            : t
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=<FLUECHTIG>
+video:0kB audio:48kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.398744%

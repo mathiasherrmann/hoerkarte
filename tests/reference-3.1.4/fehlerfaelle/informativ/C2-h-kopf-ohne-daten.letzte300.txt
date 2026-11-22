@@ -1,0 +1,6 @@
+mp3lame), 44100 Hz, stereo, s16p, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+[libmp3lame @ 0xADRESSE] Trying to remove 1152 samples, but the queue is empty
+size=<FLUECHTIG>
+video:0kB audio:1kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 53.551476%

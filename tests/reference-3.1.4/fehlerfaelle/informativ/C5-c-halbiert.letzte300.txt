@@ -1,0 +1,8 @@
+  Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Press [q] to stop, [?] for help
+size=<FLUECHTIG>
+video:0kB audio:70kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.996185%

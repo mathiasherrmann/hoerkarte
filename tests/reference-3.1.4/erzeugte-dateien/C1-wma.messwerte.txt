@@ -1,0 +1,17 @@
+format_format_name: mp3
+format_duration: 6.086531
+format_size: 146894
+format_bit_rate: 193074
+format_nb_streams: 1
+tag_album: AA-1c Referenzalbum
+tag_comment: /Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.wma
+tag_encoder: Lavf58.27.100
+tag_title: AA-1c Referenztitel
+stream_codec_name: mp3
+stream_codec_long_name: MP3 (MPEG audio layer 3)
+stream_sample_fmt: fltp
+stream_sample_rate: 44100
+stream_channels: 2
+stream_channel_layout: stereo
+stream_bit_rate: 192000
+stream_duration: 6.086531

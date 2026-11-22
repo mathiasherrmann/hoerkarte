@@ -1,0 +1,5 @@
+silence_start: 200
+silence_end: 203 | silence_duration: 3.00007
+silence_start: 388
+silence_end: 391 | silence_duration: 3.00002
+Duration: 00:06:51.00

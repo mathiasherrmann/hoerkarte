@@ -1,0 +1,20 @@
+Guessed Channel Layout for Input Stream #0.0 : stereo
+Input #0, asf, from '/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.wma':
+  Metadata:
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.04, start: 0.000000, bitrate: 276 kb/s
+    Stream #0:0: Audio: wmav2 (a[1][0][0] / 0x0161), 44100 Hz, stereo, fltp, 192 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (wmav2 (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to '/Users/mathias/Projekte/hoerkarte-archiv/aa1c-ffmpeg-ausgaben-3.1.4/modell-2021-anhebung-0/C1-wma.MP3':
+  Metadata:
+    comment         : /Users/mathias/Projekte/hoerkarte/tests/reference/quellen/ton.wma
+    TIT2            : AA-1c Titel
+    TALB            : AA-1c Album
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=     143kB time=00:00:06.06 bitrate= 193.9kbits/s speed= 194x    
+video:0kB audio:143kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.549029%

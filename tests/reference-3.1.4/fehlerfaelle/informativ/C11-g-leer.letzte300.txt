@@ -1,0 +1,3 @@
+[mp3 @ 0xADRESSE] Format mp3 detected only with low score of 1, misdetection possible!
+[mp3 @ 0xADRESSE] Failed to read frame size: Could not seek to 1026.
+<SCHLECHT>/leer.mp3: Invalid argument

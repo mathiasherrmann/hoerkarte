@@ -1,0 +1,24 @@
+[wav @ 0xADRESSE] Estimating duration from bitrate, this may be inaccurate
+Guessed Channel Layout for Input Stream #0.0 : stereo
+Input #0, wav, from '<SCHLECHT>/kopf-ohne-daten.wav':
+  Metadata:
+    encoder         : Lavf58.27.100
+  Duration: 00:00:00.00, bitrate: 2275 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+<SCHLECHT>/kopf-ohne-daten.wav: corrupt input packet in stream 0
+[pcm_s16le @ 0xADRESSE] Multiple frames in a packet.
+[pcm_s16le @ 0xADRESSE] Invalid PCM packet, data has size 2 but at least a size of 4 was expected
+Error while decoding stream #0:0: Invalid data found when processing input
+Output #0, mp3, to '<TMP>/C9-h-kopf-ohne-daten.MP3':
+  Metadata:
+    TIT2            : t
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, s16p, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+[libmp3lame @ 0xADRESSE] Trying to remove 1152 samples, but the queue is empty
+size=<FLUECHTIG>
+video:0kB audio:1kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 54.588985%

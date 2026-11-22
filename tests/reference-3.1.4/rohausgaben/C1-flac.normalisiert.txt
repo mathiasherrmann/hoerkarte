@@ -1,0 +1,19 @@
+Input #0, flac, from '<QUELLEN>/ton.flac':
+  Metadata:
+    ENCODER         : Lavf58.27.100
+  Duration: 00:00:06.00, start: 0.000000, bitrate: 116 kb/s
+    Stream #0:0: Audio: flac, 44100 Hz, stereo, s16
+Stream mapping:
+  Stream #0:0 -> #0:0 (flac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to '<AUDIO>/C1-flac.MP3':
+  Metadata:
+    comment         : <QUELLEN>/ton.flac
+    TIT2            : AA-1c Referenztitel
+    TALB            : AA-1c Referenzalbum
+    TSSE            : Lavf58.27.100
+    Stream #0:0: Audio: mp3 (libmp3lame), 44100 Hz, stereo, s16p, 192 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 libmp3lame
+size=<FLUECHTIG>
+video:0kB audio:141kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.565522%

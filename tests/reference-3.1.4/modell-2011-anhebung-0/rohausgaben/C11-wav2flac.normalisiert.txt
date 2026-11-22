@@ -1,0 +1,23 @@
+Guessed Channel Layout for Input Stream #0.0 : mono
+Input #0, wav, from '<AUDIO>/C1-wav.WAV':
+  Metadata:
+    comment         : <QUELLEN>/ton.wav
+    title           : AA-1c Titel
+    album           : AA-1c Album
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.00, bitrate: 512 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> flac (native))
+Press [q] to stop, [?] for help
+Output #0, flac, to '<AUDIO>/C11-backup.flac':
+  Metadata:
+    DESCRIPTION     : <QUELLEN>/ton.wav
+    title           : AA-1c Titel
+    album           : AA-1c Album
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: flac, 32000 Hz, mono, s16, 128 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 flac
+size=<FLUECHTIG>
+video:0kB audio:64kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 12.765989%

@@ -1,0 +1,21 @@
+Guessed Channel Layout for Input Stream #0.0 : mono
+Input #0, wav, from '<AUDIO>/C5-eingang.WAV':
+  Metadata:
+    comment         : <QUELLEN>/ton.wav
+    title           : AA-1c Titel
+    album           : AA-1c Album
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.00, bitrate: 512 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+Output #0, wav, to '<AUDIO>/C5-temp.WAV':
+  Metadata:
+    IPRD            : AA-1c geaendert
+    ICMT            : AA-1c geaendert
+    INAM            : AA-1c geaendert
+    ISFT            : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 32000 Hz, mono, s16, 512 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Press [q] to stop, [?] for help
+size=<FLUECHTIG>
+video:0kB audio:375kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.039062%

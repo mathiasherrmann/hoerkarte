@@ -1,0 +1,21 @@
+Guessed Channel Layout for Input Stream #0.0 : stereo
+Input #0, wav, from '/Users/mathias/Projekte/hoerkarte/tests/reference/quellen/leise.wav':
+  Metadata:
+    encoder         : Lavf58.27.100
+  Duration: 00:00:06.00, bitrate: 1411 kb/s
+    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to '/dev/null':
+  Metadata:
+    encoder         : Lavf58.27.100
+    Stream #0:0: Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s
+    Metadata:
+      encoder         : Lavc58.48.101 pcm_s16le
+size=N/A time=00:00:06.00 bitrate=N/A speed=2.75e+03x    
+video:0kB audio:1034kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0x7fbe40806bc0] n_samples: 529200
+[Parsed_volumedetect_0 @ 0x7fbe40806bc0] mean_volume: -54.1 dB
+[Parsed_volumedetect_0 @ 0x7fbe40806bc0] max_volume: -51.0 dB
+[Parsed_volumedetect_0 @ 0x7fbe40806bc0] histogram_51db: 151200
