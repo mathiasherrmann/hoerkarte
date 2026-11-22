@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A9D9A"/>
+      <stop offset="1" stop-color="#0E5560"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#EFE9DC"/>
+    </linearGradient>
+  </defs>
+  <!-- Hintergrund: abgerundetes Quadrat im macOS-Raster (824 px auf 1024 px) -->
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="url(#bg)"/>
+  <!-- Schatten der Karte -->
+  <path transform="translate(0,18)" opacity="0.22" fill="#062F36"
+        d="M342 232 H608 L722 346 V756 a36 36 0 0 1 -36 36 H342 a36 36 0 0 1 -36 -36 V268 a36 36 0 0 1 36 -36 Z"/>
+  <!-- Speicherkarte mit abgeschrägter Ecke -->
+  <path fill="url(#card)"
+        d="M342 232 H608 L722 346 V756 a36 36 0 0 1 -36 36 H342 a36 36 0 0 1 -36 -36 V268 a36 36 0 0 1 36 -36 Z"/>
+  <!-- Kontakte -->
+  <g fill="#E3A93A">
+    <rect x="346" y="272" width="38" height="96" rx="8"/>
+    <rect x="400" y="272" width="38" height="96" rx="8"/>
+    <rect x="454" y="272" width="38" height="96" rx="8"/>
+    <rect x="508" y="272" width="38" height="96" rx="8"/>
+    <rect x="562" y="272" width="38" height="96" rx="8"/>
+  </g>
+  <!-- Pegelbalken als Zeichen für Audio -->
+  <g>
+    <rect x="359" y="530" width="46" height="120" rx="23" fill="#0E5560"/>
+    <rect x="425" y="480" width="46" height="220" rx="23" fill="#0E5560"/>
+    <rect x="491" y="450" width="46" height="280" rx="23" fill="#F08A24"/>
+    <rect x="557" y="500" width="46" height="180" rx="23" fill="#0E5560"/>
+    <rect x="623" y="545" width="46" height="90" rx="23" fill="#0E5560"/>
+  </g>
+</svg>
